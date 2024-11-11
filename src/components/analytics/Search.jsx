@@ -31,32 +31,31 @@ const App = () => {
   // Select a profile to view more details
   const handleSelectProfile = useCallback((profile) => {
     setSelectedProfile(profile);
-    setFilteredNames([])
   }, []);
 
-  return (
+  return <div className='Search-container'>
     <div className="app-previewProfile">
-      <h1>Student Directory</h1>
       <input
         type="text"
         placeholder="Search by name..."
         onChange={(e) => handleSearch(e.target.value)}
       />
-      <div className="suggestions">
-        {!selectedProfile && filteredNames.map((item, index) => (
-          <ProfilePreview
-            key={index}
-            profile={item}
-            onSelect={() => handleSelectProfile(item)}
-          />
-        ))}
-      </div>
+      
       
       {selectedProfile && (
         <DetailedProfile profile={selectedProfile} onClose={() => setSelectedProfile(null)} />
-      )}
+        )}
+      </div>
+      <div className="suggestions">
+        {!selectedProfile && filteredNames.map((item, index) => (
+          <ProfilePreview
+          key={index}
+          profile={item}
+          onSelect={() => handleSelectProfile(item)}
+          />
+          ))}
+      </div>
     </div>
-  );
 };
 
 export default App;
