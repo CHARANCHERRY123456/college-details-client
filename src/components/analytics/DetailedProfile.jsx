@@ -6,12 +6,13 @@ const DetailedProfile = ({ profile, onClose }) => (
     <div className="detailed-profile">
       <button className="close-button" onClick={onClose}>×</button>
       
-      {/* Display profile picture if available */}
-      {profile.IMAGE && (
-        <img src={profile.IMAGE} alt={profile.NAME} className="profile-pic-large" />
-      )}
-      
-      <h2>{profile.NAME}</h2>
+      <div className="profile-container">
+        {profile.IMAGE && (
+          <img src={profile.IMAGE} alt={profile.NAME} className="profile-pic-large" />
+        )}
+        
+        <h2>{profile.NAME}</h2>
+      </div>
       
       {/* Dynamically generate details based on profile properties */}
       <ul className="profile-details">

@@ -219,3 +219,9 @@ body, .navbar, .content {
 .Search-container{
   margin-top: 20px;
 }
+
+
+.profile-container{
+  display: flex;
+  
+}
